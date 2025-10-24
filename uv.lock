@@ -505,6 +505,7 @@ name = "py-template"
 source = { editable = "." }
 dependencies = [
     { name = "jinja2" },
+    { name = "pre-commit" },
 ]
 
 [package.optional-dependencies]
@@ -520,6 +521,7 @@ dev = [
 requires-dist = [
     { name = "jinja2", specifier = ">=3.1" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.0" },
+    { name = "pre-commit", specifier = ">=4.3.0" },
     { name = "pre-commit", marker = "extra == 'dev'", specifier = ">=3.0" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=7.0" },
     { name = "python-semantic-release", marker = "extra == 'dev'", specifier = ">=8.0" },
