@@ -16,13 +16,17 @@ A Cookiecutter template for Python packages with CI/CD, semantic versioning, and
 Install Cookiecutter:
 
 ```bash
+# Using pip
 pip install cookiecutter
+
+# Using uv
+uv add cookiecutter
 ```
 
 Generate a new project:
 
 ```bash
-cookiecutter https://github.com/yourusername/python-package-template
+cookiecutter https://github.com/adilsaid64/py-template
 ```
 
 You'll be prompted for:
@@ -40,7 +44,7 @@ You'll be prompted for:
 
 1. Navigate to your project directory
 2. Initialise Git: `git init`
-3. Add remote: `git remote add origin https://github.com/yourusername/your-project.git`
+3. Add remote: `git remote add origin https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name.lower().replace(' ', '-') }}.git`
 4. Install dependencies: `uv pip install -e ".[dev]"`
 5. Install pre-commit hooks: `pre-commit install`
 
