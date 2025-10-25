@@ -3,21 +3,21 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "py-template"
-description = "A boilerplate template for building custom python packages with semantic versioning"
+name = "{{ cookiecutter.project_name }}"
+description = "{{ cookiecutter.project_description }}"
 readme = "README.md"
 license = "Apache-2.0"
 authors = [
-    {name = "Adil Said"}
+    {name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"}
 ]
 maintainers = [
-    {name = "Adil Said"}
+    {name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"}
 ]
 keywords = ["template", "python", "project"]
 classifiers = [
     "Programming Language :: Python :: 3",
 ]
-requires-python = ">=3.9"
+requires-python = ">={{ cookiecutter.python_version }}"
 dependencies = [
     "jinja2>=3.1",
     "pre-commit>=4.3.0",
@@ -25,11 +25,11 @@ dependencies = [
 dynamic = ["version"]
 
 [project.urls]
-Homepage = "https://github.com/adilsaid/time-series-profiler"
-Documentation = "https://github.com/adilsaid/time-series-profiler#readme"
-Repository = "https://github.com/adilsaid/time-series-profiler.git"
-Issues = "https://github.com/adilsaid/time-series-profiler/issues"
-Changelog = "https://github.com/adilsaid/time-series-profiler/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name.lower().replace(' ', '-') }}"
+Documentation = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name.lower().replace(' ', '-') }}#readme"
+Repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name.lower().replace(' ', '-') }}.git"
+Issues = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name.lower().replace(' ', '-') }}/issues"
+Changelog = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_name.lower().replace(' ', '-') }}/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 dev = [
@@ -47,11 +47,11 @@ where = ["src"]
 "" = "src"
 
 [tool.setuptools.dynamic]
-version = {attr = "pytemplate.__version__"}
+version = {attr = "{{ cookiecutter.package_name }}.__version__"}
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]
-version_variables = ["src/pytemplate/__init__.py:__version__"]
+version_variables = ["src/{{ cookiecutter.package_name }}/__init__.py:__version__"]
 upload_to_vcs_release = true
 
 [tool.semantic_release.branches.main]
@@ -90,7 +90,7 @@ skip-magic-trailing-comma = false
 line-ending = "auto"
 
 [tool.ruff.lint.isort]
-known-first-party = ["pytemplate"]
+known-first-party = ["{{ cookiecutter.package_name }}"]
 
 [tool.mypy]
 python_version = "3.9"

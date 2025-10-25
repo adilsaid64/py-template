@@ -21,3 +21,8 @@ repos:
       - id: mypy
         additional_dependencies: [types-requests]
         args: [--ignore-missing-imports]
+
+exclude: |
+  (?x)^(
+    \{\{cookiecutter\.project_name\}\}/.*
+  )$

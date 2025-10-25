@@ -150,7 +150,7 @@
                 "assets": [
                     "pyproject.toml",
                     "CHANGELOG.md",
-                    "src/tsp/__init__.py"
+                    "src/{{ cookiecutter.package_name }}/__init__.py"
                 ],
                 "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
             }
