@@ -21,7 +21,7 @@ jobs:
 
       - name: Show generated project structure
         run: |
-          PROJECT_DIR="My Python Project"
+          PROJECT_DIR="MyPythonProject"
 
           echo "📁 Listing generated directories:"
           ls -d */
@@ -32,7 +32,7 @@ jobs:
 
       - name: Verify generated project contains required files
         run: |
-          PROJECT_DIR="My Python Project"
+          PROJECT_DIR="MyPythonProject"
 
           echo "Checking that '$PROJECT_DIR' exists..."
           if [ ! -d "$PROJECT_DIR" ]; then
@@ -68,14 +68,14 @@ jobs:
         uses: astral-sh/setup-uv@v3
 
       - name: Install project in dev mode
-        working-directory: "My Python Project"
+        working-directory: "MyPythonProject"
         run: |
           uv venv
           source .venv/bin/activate
           uv pip install -e ".[dev]"
 
       - name: Run the project's tests
-        working-directory: "My Python Project"
+        working-directory: "MyPythonProject"
         run: |
           source .venv/bin/activate
           pytest -q
