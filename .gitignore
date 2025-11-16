@@ -158,8 +158,3 @@ cython_debug/
 #  project, it is recommended to not include this file in version control.
 #  https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
 .idea/
-
-# Example output files
-examples/profile_report.html
-examples/profile_report.json
-examples/activity_tracker.csv
