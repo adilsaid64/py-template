@@ -7,5 +7,8 @@
     "project_description": "A Python package with CI/CD and semantic versioning",
     "python_version": "3.9",
     "license": "Apache-2.0",
-    "year": "{% now 'utc', '%Y' %}"
+    "year": "{% now 'utc', '%Y' %}",
+    "_copy_without_render": [
+        ".github/workflows/*.yml"
+    ]
 }
