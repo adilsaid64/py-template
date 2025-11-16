@@ -19,15 +19,31 @@ jobs:
       - name: Generate project from template
         run: cookiecutter . --no-input
 
-      - name: Confirm project was created
+      - name: Verify generated project
         run: |
-          echo "Generated directories:"
-          ls -d */
+          PROJECT_DIR="My Python Project"
 
-          COUNT=$(ls -d */ | wc -l)
-          if [ "$COUNT" -lt 1 ]; then
-            echo "No project was generated!"
+          echo "Checking that '$PROJECT_DIR' exists..."
+          if [ ! -d "$PROJECT_DIR" ]; then
+            echo "❌ ERROR: Expected project directory '$PROJECT_DIR' was NOT created."
             exit 1
           fi
 
-          echo "Template rendered successfully."
+          echo "Checking for expected files..."
+
+          REQUIRED_FILES=(
+            "$PROJECT_DIR/pyproject.toml"
+            "$PROJECT_DIR/README.md"
+            "$PROJECT_DIR/src"
+            "$PROJECT_DIR/.github/workflows"
+          )
+
+          for FILE in "${REQUIRED_FILES[@]}"; do
+            if [ ! -e "$FILE" ]; then
+              echo "❌ ERROR: Missing expected file or folder: $FILE"
+              exit 1
+            fi
+          done
+
+          echo ""
+          echo "✅ Template rendered correctly and key files exist."
