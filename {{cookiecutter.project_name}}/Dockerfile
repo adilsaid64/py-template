@@ -6,4 +6,4 @@ COPY . /app
 
 RUN uv sync
 
-CMD ["uv", "run", "-m", "{{ cookiecutter.package_name }}"]
+CMD ["uv", "run", "examples/quickstart.py"]
